@@ -1,0 +1,31 @@
+.buttons,
+.container,
+.trafficLight {
+	margin: 0 auto;
+}
+
+.buttons {
+	width: 10%;
+}
+.container {
+	width: 50%;
+	border: 1px solid #333;
+	border-radius: 5px;
+}
+
+.trafficLight {
+	height: 0;
+	padding-top: 45.45%;
+	width: 13%;
+	background-repeat: no-repeat;
+
+	&.red {
+		background-image: url("/includes/img/traffic-lights-RED.jpg");
+	}
+	&.green {
+		background-image: url("/includes/img/traffic-lights-GREEN.jpg");
+	}
+	&.yellow {
+		background-image: url("/includes/img/traffic-lights-YELLOW.jpg");
+	}
+}
