@@ -7,7 +7,7 @@ $buttonColor: #b4dfdf;
 }
 
 .buttons {
-	width: 10%;
+	width: auto;
 
 	& div {
 		background-color: $buttonColor;
@@ -16,6 +16,7 @@ $buttonColor: #b4dfdf;
 		cursor: pointer;
 		text-align: center;
 		margin-top: 5px;
+		padding: 5px;
 
 		&:hover {
 			background-color: lighten($buttonColor, 10%);
@@ -46,4 +47,8 @@ $buttonColor: #b4dfdf;
 	&.yellow {
 		background-image: url("/includes/img/traffic-lights-YELLOW.jpg");
 	}
+}
+
+row.div {
+	margin: 0 auto;
 }
