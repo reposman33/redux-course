@@ -1,3 +1,5 @@
+$buttonColor: #b4dfdf;
+
 .buttons,
 .container,
 .trafficLight {
@@ -6,9 +8,25 @@
 
 .buttons {
 	width: 10%;
+
+	& div {
+		background-color: $buttonColor;
+		border: 1px solid #333;
+		border-radius: 5px;
+		cursor: pointer;
+		text-align: center;
+		margin-top: 5px;
+
+		&:hover {
+			background-color: lighten($buttonColor, 10%);
+		}
+		&:active {
+			background-color: lighten($buttonColor, 20%);
+		}
+	}
 }
 .container {
-	width: 50%;
+	width: 35%;
 	border: 1px solid #333;
 	border-radius: 5px;
 }
@@ -16,7 +34,7 @@
 .trafficLight {
 	height: 0;
 	padding-top: 45.45%;
-	width: 13%;
+	width: 20%;
 	background-repeat: no-repeat;
 
 	&.red {

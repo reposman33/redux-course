@@ -7,6 +7,8 @@ import { dispatch } from "rxjs/internal/observable/pairs";
 class Trafficlight extends Component {
 	constructor(props) {
 		super(props);
+		this.autoInterValId = undefined;
+		this.autoCounter = 0;
 	}
 
 	onHandleClickStop = () => {
@@ -18,6 +20,20 @@ class Trafficlight extends Component {
 	onHandleClickGo = () => {
 		this.props.go();
 	};
+	onHandleAutoClick = () => {
+		this.autoInterValId = window.setInterval(() => {
+			// initialize and set counter
+			this.autoCounter = this.autoCounter >= 2 ? 0 : this.autoCounter + 1;
+			[
+				this.onHandleClickStop,
+				this.onHandleClickWarn,
+				this.onHandleClickGo
+			][this.autoCounter].call(this);
+		}, 1000);
+	};
+	onStopAuto = () => {
+		window.clearInterval(this.autoInterValId);
+	};
 
 	render() {
 		return (
@@ -28,6 +44,13 @@ class Trafficlight extends Component {
 					<div onClick={this.onHandleClickStop}>Stop</div>
 					<div onClick={this.onHandleClickWarn}>Warn</div>
 					<div onClick={this.onHandleClickGo}>Go</div>
+
+					<div onClick={this.onHandleAutoClick}>
+						auto {this.autoCounter}
+					</div>
+					{this.autoInterValId && (
+						<div onClick={this.onStopAuto}>stop</div>
+					)}
 				</div>
 			</div>
 		);
