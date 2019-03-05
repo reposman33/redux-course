@@ -27,11 +27,11 @@ class Clock extends React.Component {
 					</div>
 				</div>
 				<div className='row clock--buttons'>
-					<div className='col'>
+					<div className='col-md-3 m-3'>
 						<span onClick={this.onClickAddHour}>&#43;</span>
 						<span onClick={this.onClickSubtractHour}>&#45;</span>
 					</div>
-					<div className='col'>
+					<div className='col-md-3 m-3'>
 						<span onClick={this.onClickAddMinute}>&#43;</span>
 						<span onClick={this.onClickSubtractMinute}>&#45;</span>
 					</div>
