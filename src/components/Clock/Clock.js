@@ -4,6 +4,12 @@ import { createStore } from "redux";
 import { connect } from "react-redux";
 
 class Clock extends React.Component {
+	onAuthenticate = () => {
+		this.props.authenticate();
+	};
+	onSignOut = () => {
+		this.props.signOut();
+	};
 	onClickAddMinute = () => {
 		this.props.addMinute();
 	};
@@ -20,6 +26,18 @@ class Clock extends React.Component {
 	render() {
 		return (
 			<div className='container'>
+				<div className='row justify-content-end'>
+					{!this.props.userId && (
+						<button className='m-1' onClick={this.onAuthenticate}>
+							Sign In
+						</button>
+					)}
+					{this.props.userId && (
+						<button className='m-1' onClick={this.onSignOut}>
+							Sign Out
+						</button>
+					)}
+				</div>
 				<div className='row'>
 					<div className='col clock'>
 						{(this.props.hours < 10 && "0") + this.props.hours}:
@@ -53,11 +71,32 @@ const actionAddHour = () => ({
 const actionSubtractHour = () => ({
 	type: "SUBTRACTHOUR"
 });
+const actionAuthenticate = () => ({
+	type: "AUTHENTICATE"
+});
+const actionSignOut = () => ({
+	type: "SIGNOUT"
+});
 
 const now = new Date();
-const initialState = { minutes: now.getMinutes(), hours: now.getHours() };
+const initialState = {
+	minutes: now.getMinutes(),
+	hours: now.getHours(),
+	userId: null,
+	username: null,
+	token: null
+};
 const reducer = (state = initialState, action) => {
 	switch (action.type) {
+		case "AUTHENTICATE":
+			return {
+				...state,
+				userId: 42,
+				username: "you",
+				token: "abcdefg"
+			};
+		case "SIGNOUT":
+			return initialState;
 		case "ADDMINUTE":
 			return {
 				minutes: (state.minutes + 1) % 60,
@@ -81,13 +120,18 @@ const reducer = (state = initialState, action) => {
 };
 const mapStateToProps = state => ({
 	minutes: state.minutes,
-	hours: state.hours
+	hours: state.hours,
+	userId: state.userId,
+	username: state.username,
+	token: state.token
 });
 const mapDispatchToProps = dispatch => ({
 	addMinute: () => dispatch(actionAddMinute()),
 	subtractMinute: () => dispatch(actionSubtractMinute()),
 	addHour: () => dispatch(actionAddHour()),
-	subtractHour: () => dispatch(actionSubtractHour())
+	subtractHour: () => dispatch(actionSubtractHour()),
+	authenticate: () => dispatch(actionAuthenticate()),
+	signOut: () => dispatch(actionSignOut())
 });
 
 const clockStore = createStore(reducer);
