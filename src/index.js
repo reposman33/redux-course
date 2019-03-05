@@ -14,16 +14,12 @@ import { trafficLightStore } from "./components/TrafficLight/TrafficLight";
 // CLOCK
 import Clock from "./components/Clock/Clock";
 import { clockStore } from "./components/Clock/Clock";
+// IMMUTABLE ARRAYS
+import ImmutableArrays from "./components/ImmutableArrays/ImmutableArrays";
+import { immutableArraysStore } from "./components/ImmutableArrays/ImmutableArrays";
 
-// const store = trafficLightStore;
-// const store = counterStore;
-// const store = stepCounterStore;
-const store = clockStore;
-
-// const Component = TrafficLight;
-// const Component = Counter;
-//const Component = StepCounter;
-const Component = Clock;
+const store = immutableArraysStore;
+const Component = ImmutableArrays;
 
 const App = () => (
 	<Provider store={store}>
