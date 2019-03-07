@@ -17,9 +17,12 @@ import { clockStore } from "./components/Clock/Clock";
 // IMMUTABLE ARRAYS
 import ImmutableArrays from "./components/ImmutableArrays/ImmutableArrays";
 import { immutableArraysStore } from "./components/ImmutableArrays/ImmutableArrays";
+// IMMUTABLEOBJECTS
+import ImmutableObjects from "./components/ImmutableObjects/ImmutableObjects";
+import { ImmutableObjectsStore } from "./components/ImmutableObjects/ImmutableObjects";
 
-const store = immutableArraysStore;
-const Component = ImmutableArrays;
+const store = ImmutableObjectsStore;
+const Component = ImmutableObjects;
 
 const App = () => (
 	<Provider store={store}>
