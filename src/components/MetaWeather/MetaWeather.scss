@@ -1,0 +1,44 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	font-family: bebas-neue, sans-serif;
+	font-weight: 400;
+
+	& .title {
+		font-style: bold;
+		font-size: 3rem;
+		color: blue;
+		text-align: center;
+	}
+
+	& input {
+		font-style: normal;
+		font-size: 2rem;
+		color: #111;
+	}
+
+	& .output {
+		text-align: center;
+		font-size: 2rem;
+	}
+}
+
+.slider {
+	white-space: nowrap;
+	overflow-x: scroll;
+}
+
+.weatherForecast {
+	background-color: #9abdd8;
+	height: 240px;
+	width: 320px;
+	border: 1px solid #333;
+	border-radius: 5px;
+	margin: 0.3rem;
+	padding: 0.2rem;
+	display: inline-block;
+
+	& img {
+		width: 35%;
+	}
+}
