@@ -16,14 +16,18 @@ import "./index.css";
 // import ImmutableArrays, { immutableArraysStore } from "./components/ImmutableArrays/ImmutableArrays";
 // IMMUTABLEOBJECTS
 // import ImmutableObjects, { ImmutableObjectsStore } from "./components/ImmutableObjects/ImmutableObjects";
+// IMMUTABLE ARRAYS WITH IMMER
+import ImmutableArraysWithImmer, {
+	immutableArraysStoreWithImmer
+} from "./components/Immer/ImmutableArraysWithImmer";
 
 // METAWEATHER
-import MetaWeather, {
-	MetaWeatherStore
-} from "./components/MetaWeather/MetaWeather";
+// import MetaWeather, {
+// 	MetaWeatherStore
+// } from "./components/MetaWeather/MetaWeather";
 
-const store = MetaWeatherStore;
-const Component = MetaWeather;
+const store = immutableArraysStoreWithImmer;
+const Component = ImmutableArraysWithImmer;
 
 const App = () => (
 	<Provider store={store}>
