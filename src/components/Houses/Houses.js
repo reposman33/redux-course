@@ -93,12 +93,18 @@ const mapState = state => ({
   houses: state
 });
 
+export const actions = {
+  addFirst: () => ({ type: "ADD_HOUSE_FIRST", house: slytherin }),
+  removeSecond: () => ({ type: "REMOVE_SECOND_HOUSE", house: slytherin }),
+  addLast: () => ({ type: "ADD_LAST_HOUSE", house: slytherin }),
+  addPoints: id => ({ type: "ADD_POINTS", houseId: id, points: 50 })
+};
+
 const mapDispatch = dispatch => ({
-  addFirst: () => dispatch({ type: "ADD_HOUSE_FIRST", house: slytherin }),
-  removeSecond: () =>
-    dispatch({ type: "REMOVE_SECOND_HOUSE", house: slytherin }),
-  addLast: () => dispatch({ type: "ADD_LAST_HOUSE", house: slytherin }),
-  addPoints: id => dispatch({ type: "ADD_POINTS", houseId: id, points: 50 })
+  addFirst: () => dispatch(actions.addFirst()),
+  removeSecond: () => dispatch(actions.removeSecond()),
+  addLast: () => dispatch(actions.addLast()),
+  addPoints: id => dispatch(actions.addPoints())
 });
 
 const Houses = connect(

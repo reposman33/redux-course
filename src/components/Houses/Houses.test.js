@@ -1,4 +1,4 @@
-import reducer, { slytherin } from "./Houses";
+import reducer, { slytherin, actions } from "./Houses";
 
 // Test ADD_HOUSE_FIRST
 it("Should add a house as first item", () => {
@@ -38,9 +38,16 @@ it("Should add a house to the end", () => {
     house: slytherin
   });
   // then
-  expect(newStaete.length).toBe(4);
-  expect(newStaete.find(house => house.name === "slytherin")).toBeDefined();
+  expect(newStaete.length).toBe(state.length + 1);
+  expect(newStaete.find(house => slytherin)).toBeDefined();
 });
 
 //ADD_POINTS
 // ...
+
+// actions: REMOVE_SECOND
+
+it("actioncreator removeSecond should yield an object with type REMOVE_SECOND_HOUSE", () => {
+  const action = actions.removeSecond();
+  expect(action.type).toBe("REMOVE_SECOND_HOUSE");
+});
